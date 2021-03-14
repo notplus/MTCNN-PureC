@@ -8,7 +8,9 @@ AUX_SOURCE_DIRECTORY(src DIR_SRCS)
 
 ADD_EXECUTABLE(${PROJECT_NAME} ${DIR_SRCS})
 
-target_link_libraries(${PROJECT_NAME} m)
+if(CMAKE_HOST_UNIX)
+    target_link_libraries(${PROJECT_NAME} m)
+endif()
 
 file(GLOB MODEL "${PROJECT_SOURCE_DIR}/model/*.txt")
 add_custom_command(TARGET ${PROJECT_NAME}
