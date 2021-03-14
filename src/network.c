@@ -118,7 +118,8 @@ void PRelu(struct Mat* input, float* pbias, float* prelu_gmma)
 		for (size_t col = 0; col < dis; col++)
 		{
 			*op = *op + *pb;
-			*op = (*op > 0) ? (*op) : (*op) * (*pg);
+			//*op = (*op > 0) ? (*op) : (*op) * (*pg);
+			*op = (*op > 0) ? *op : 0;
 			op++;
 		}
 		pb++;

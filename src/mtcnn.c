@@ -398,7 +398,7 @@ void InitMtcnn(struct Mtcnn* network, int row, int col)
 	network->nms_threshold[1] = 0.7;
 	network->nms_threshold[2] = 0.7;
 
-	float minl = min(row, col);
+	float minl = MIN(row, col);
 	int MIN_DET_SIZE = 12;
 	int minsize = 60;
 	float m = (float)MIN_DET_SIZE / minsize;

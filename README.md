@@ -5,8 +5,21 @@ MTCNN face detection with C and Arm-CMSIS-DSP
 The project is a MTCNN face detection based on C. To implement MTCNN in MCU, the project doesn't rely on any library and you can use [ARM-CMSIS-DSP](https://github.com/ARM-software/CMSIS_5) to accelerate the matrix multiplication.
 The input data is a RGB CHW txt, and output is the keypoints of face and bounding box of face.
 
-本项目为MTCNN的C实现，无依赖库，主要为arm平台的mcu编写，在部署时可通过[ARM-CMSIS-DSP](https://github.com/ARM-software/CMSIS_5)库来加速矩阵乘法运算。
+本项目为MTCNN的C实现，无依赖库，主要为arm平台的mcu编写，在部署时可通过[ARM-CMSIS-DSP](https://github.com/ARM-software/CMSIS_5)库来加速矩阵乘法运算，请参考官方文档。
+
+本项目在保持API不变下简化了`arm_math.h`和`arm_mat_mult_f32.c`，以便在PC平台运行。
+
 输入为RGB CHW格式的文本文件，输出为人脸包围盒和人脸关键点。
+
+## Usage
+```shell
+git clone https://github.com/notplus/MTCNN-PureC.git
+cd MTCNN-PureC
+mkdir build
+cd build
+cmake ..
+make
+```
 
 ## Demo
 ![picture 1](https://github.com/notplus/MTCNN-PureC/blob/master/1.jpg)
