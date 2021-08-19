@@ -23,7 +23,19 @@ make
 
 ## Demo
 ![picture 1](https://github.com/notplus/MTCNN-PureC/blob/master/1.jpg)
-### output  
+
+### Input
+输入为RGB CHW 格式图像生成的文本文件，可使用如下代码生成，另外使用时需要在`include/test.h`中修改图像尺寸。
+
+```python
+import numpy as np
+import cv2
+img = cv2.imread("1.jpg")
+img_ = img[:,:,::-1].transpose((2,0,1))
+np.savetxt('input1.txt', img_.reshape(-1), "%d")
+```
+
+### Output  
 * boundingBox3 is 160 72 450 362         //(x1, y1, x2, y2)
 * keyPoint0 is 259.010193 188.661850  
 * keyPoint1 is 350.958679 183.481461   
@@ -31,7 +43,7 @@ make
 * keyPoint3 is 267.242126 291.008728   
 * keyPoint4 is 354.936646 283.069946   
 
-### print with opencv
+### Print with opencv
 ![picture 2](https://github.com/notplus/MTCNN-PureC/blob/master/result.jpg)
 
 

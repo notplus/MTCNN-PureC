@@ -22,7 +22,7 @@ void getInput(struct Img* image)
 
 	for (size_t i = 0; i < image->cols*image->rows*image->dims; i++)
 	{
-		fscanf(fp, "%d ", &image->pdata[i]);
+		fscanf(fp, "%d", &image->pdata[i]);
 	}
 }
 
